@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Photography | Manasvi Bhan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="project.css" />
+</head>
+<body>
+<nav class="proj-nav">
+  <a href="index.html#portfolio" class="proj-nav-back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    All Projects
+  </a>
+  <a href="index.html" class="proj-nav-logo"><span class="logo-mb">MB</span><span class="logo-divider"></span><span class="logo-right"><span class="logo-name">Mana B</span><span class="logo-sub">Interior Decorator</span></span></a>
+  <a href="index.html#contact" class="proj-nav-contact">Contact</a>
+</nav>
+
+<header class="proj-hero">
+  <p class="proj-category">Design Photography</p>
+  <h1 class="proj-title">Design <em>Photography</em></h1>
+  <div class="proj-meta">
+    <span class="proj-tag">2025</span>
+    <span class="proj-year">Conestoga College Â· Interior Decorating</span>
+  </div>
+  <p class="proj-desc">A curated series of design photographs exploring composition, texture, light, and perspective. Each image is named and intentional â€” from finding beauty in carved concrete to the geometry of a woven light fixture. The series includes: On the Prowl, The Unfiltered Trio, Stone Whispers, The Zen Mode, The Woven Radiance, Texture Meets Tranquility, and The Infinity Gate.</p>
+</header>
+
+<section class="proj-gallery">
+  <div class="gallery-masonry">
+    <img src="images/4c2dca81-89b8-4add-a2e8-eaf4f6f15297.jpg" alt="On the Prowl â€” leopard engraved in lightweight concrete by Dekko" onclick="openLightbox(this)" />
+    <img src="images/4f1fe175-b307-4b2f-bf42-bed8db86270d.jpg" alt="The Unfiltered Trio â€” bronze sculpture, Montreal" onclick="openLightbox(this)" />
+    <img src="images/c6528ac0-fe9d-4d6c-8af8-7f9e59e88775.png" alt="Stone Whispers â€” natural stone with symmetrical veining" onclick="openLightbox(this)" />
+    <img src="images/f5befb3b-caf4-4d1a-afdc-4c07c533ff9d.jpg" alt="The Zen Mode â€” time to reflect" onclick="openLightbox(this)" />
+    <img src="images/c15cbd96-9c7e-49d1-9f82-7924e1ab50c0.jpg" alt="The Woven Radiance â€” woven light fixture from below" onclick="openLightbox(this)" />
+    <img src="images/094538d4-a571-4d49-8463-456da2df9bcd.jpg" alt="Texture Meets Tranquility â€” cable-knit texture" onclick="openLightbox(this)" />
+    <img src="images/f3a76be4-08f8-4c16-b77f-2c2ca2320c0d.jpg" alt="The Infinity Gate â€” frame within a frame" onclick="openLightbox(this)" />
+  </div>
+</section>
+
+<a href="project-branding.html" class="proj-next">
+  <div>
+    <p class="proj-next-label">Next Project</p>
+    <p class="proj-next-title">Branding &amp; Digital Marketing</p>
+  </div>
+  <span class="proj-next-arrow">â†’</span>
+</a>
+<footer class="proj-footer"><p>Â© 2026 Manasvi Bhan Â· <a href="index.html">Portfolio</a></p></footer>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">Ã—</button>
+  <img id="lightbox-img" src="" alt="" />
+</div>
+<script>
+function openLightbox(img) { document.getElementById('lightbox-img').src = img.src; document.getElementById('lightbox').classList.add('open'); }
+function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeLightbox(); });
+</script>
+</body>
+</html>

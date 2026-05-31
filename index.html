@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manasvi Bhan | Interior Decorator</title>
+  <meta name="description" content="Manasvi Bhan — Interior Decorator based in Waterloo, ON. Specialising in residential interiors, colour consulting, 3D rendering, and brand identity." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── RESET + VARIABLES ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink:        #110A06;
+      --brown:      #7B4A2D;
+      --brown-dark: #4E2C17;
+      --terracotta: #C8956C;
+      --cream:      #FAF7F4;
+      --warm-white: #F3EDE6;
+      --warm-mid:   #E8DDD3;
+      --text:       #2C1F14;
+      --text-light: #6B5344;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--text); line-height: 1.7; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.4rem 5%;
+      background: transparent;
+      transition: background 0.4s ease, box-shadow 0.4s ease;
+    }
+    nav.scrolled {
+      background: rgba(250,247,244,0.97);
+      box-shadow: 0 1px 0 var(--warm-mid);
+      backdrop-filter: blur(8px);
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 0;
+      text-decoration: none; flex-shrink: 0;
+    }
+    .nav-logo .logo-mb {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem; font-weight: 300; font-style: italic;
+      letter-spacing: -0.01em; line-height: 1;
+      color: rgba(250,247,244,0.95); transition: color 0.4s;
+    }
+    .nav-logo .logo-divider {
+      width: 1px; height: 26px; background: var(--terracotta);
+      margin: 0 13px; opacity: 0.55; flex-shrink: 0;
+    }
+    .nav-logo .logo-right {
+      display: flex; flex-direction: column; gap: 2px;
+    }
+    .nav-logo .logo-name {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.7rem; font-weight: 500; letter-spacing: 0.05em;
+      color: rgba(250,247,244,0.9); transition: color 0.4s; line-height: 1;
+    }
+    .nav-logo .logo-sub {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.56rem; font-weight: 400; letter-spacing: 0.18em;
+      text-transform: uppercase; color: rgba(200,149,108,0.75);
+      line-height: 1; transition: color 0.4s;
+    }
+    nav.scrolled .nav-logo .logo-mb   { color: var(--brown-dark); }
+    nav.scrolled .nav-logo .logo-name { color: var(--brown-dark); }
+    nav.scrolled .nav-logo .logo-sub  { color: var(--terracotta); }
+    .nav-links { display: flex; gap: 2.4rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none; font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(250,247,244,0.78); transition: color 0.2s;
+    }
+    nav.scrolled .nav-links a { color: var(--text-light); }
+    .nav-links a:hover { color: var(--terracotta) !important; }
+    .nav-menu-btn {
+      display: none; background: none; border: none; cursor: pointer;
+      font-family: 'Jost', sans-serif; font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(250,247,244,0.78); transition: color 0.4s; padding: 0;
+    }
+    nav.scrolled .nav-menu-btn { color: var(--text-light); }
+
+    /* ─── BUTTONS ─── */
+    .btn {
+      display: inline-block; padding: 0.88rem 2rem; border-radius: 2px;
+      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; text-decoration: none;
+      transition: all 0.25s; cursor: pointer;
+      font-family: 'Jost', sans-serif; border: 1.5px solid transparent;
+    }
+    .btn-solid { background: var(--brown); color: #fff; border-color: var(--brown); }
+    .btn-solid:hover { background: var(--brown-dark); border-color: var(--brown-dark); }
+    .btn-outline-cream { background: transparent; color: var(--cream); border-color: rgba(250,247,244,0.42); }
+    .btn-outline-cream:hover { border-color: rgba(250,247,244,0.75); background: rgba(250,247,244,0.07); }
+    .btn-outline-brown { background: transparent; color: var(--brown); border-color: var(--brown); }
+    .btn-outline-brown:hover { background: var(--brown); color: #fff; }
+    .btn-outline-terra { background: transparent; color: var(--terracotta); border-color: rgba(200,149,108,0.5); }
+    .btn-outline-terra:hover { border-color: var(--terracotta); background: rgba(200,149,108,0.08); }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh; position: relative;
+      display: flex; align-items: flex-end;
+      padding: 0 5% 9vh; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('images/77f9c5b1-c47c-41d2-b5ad-50e6fdd05a64.jpg');
+      background-size: cover; background-position: center;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(17,10,6,0.86) 34%, rgba(17,10,6,0.18) 100%);
+    }
+    /* Subtle top vignette keeps nav logo readable over the photo */
+    .hero::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 160px;
+      background: linear-gradient(to bottom, rgba(17,10,6,0.45) 0%, transparent 100%);
+      z-index: 1; pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 660px; }
+    .hero-eyebrow {
+      display: block; font-size: 0.65rem; font-weight: 500;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--terracotta); margin-bottom: 1.5rem;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(4rem, 8vw, 7.5rem);
+      font-weight: 300; line-height: 0.96; letter-spacing: -0.015em;
+      color: var(--cream); margin-bottom: 1.8rem;
+    }
+    .hero-title em { font-style: italic; color: var(--terracotta); }
+    .hero-tagline {
+      font-size: 0.9rem; font-weight: 300; color: rgba(250,247,244,0.58);
+      line-height: 1.9; max-width: 340px; margin-bottom: 2.5rem;
+    }
+    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .scroll-hint {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
+    }
+    .scroll-hint-label {
+      font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(250,247,244,0.32);
+    }
+    .scroll-line {
+      width: 1px; height: 44px;
+      background: linear-gradient(to bottom, rgba(250,247,244,0.42), transparent);
+      animation: scrollPulse 2.2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.35; }
+      50% { opacity: 1; }
+    }
+
+    /* ─── PHILOSOPHY STRIP ─── */
+    .philosophy {
+      background: var(--cream);
+      padding: 6.5rem 5%;
+      text-align: center;
+    }
+    .philosophy-inner { max-width: 780px; margin: 0 auto; }
+    .phi-rule {
+      display: flex; align-items: center; justify-content: center;
+      gap: 1.8rem; margin-bottom: 0;
+    }
+    .phi-rule::before, .phi-rule::after {
+      content: ''; display: block; flex: 1; max-width: 64px;
+      height: 1px; background: var(--terracotta); opacity: 0.5;
+    }
+    .phi-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.65rem, 3.2vw, 2.5rem);
+      font-weight: 300; font-style: italic;
+      color: var(--brown-dark); line-height: 1.35;
+    }
+    .phi-values {
+      margin-top: 2rem;
+      font-size: 0.65rem; font-weight: 500; letter-spacing: 0.32em;
+      text-transform: uppercase; color: var(--text-light);
+    }
+
+    /* ─── FEATURED WORK ─── */
+    .feat-work {
+      display: grid; grid-template-columns: 44fr 56fr;
+      min-height: 75vh; overflow: hidden; background: var(--ink);
+    }
+    .feat-text {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 6rem 4.5rem 6rem 5%; gap: 1.8rem;
+    }
+    .feat-eyebrow {
+      font-size: 0.65rem; font-weight: 500; letter-spacing: 0.28em;
+      text-transform: uppercase; color: var(--terracotta);
+    }
+    .feat-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 4.5vw, 4.5rem);
+      font-weight: 300; color: var(--cream); line-height: 1.0;
+    }
+    .feat-title em { font-style: italic; color: var(--terracotta); }
+    .feat-desc {
+      font-size: 0.92rem; color: rgba(250,247,244,0.56);
+      line-height: 1.95; max-width: 360px;
+    }
+    .feat-img { overflow: hidden; }
+    .feat-img img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.75s ease;
+    }
+    .feat-work:hover .feat-img img { transform: scale(1.04); }
+
+    /* ─── SHARED SECTION HEADER ─── */
+    .section-header { margin-bottom: 3.5rem; }
+    .section-eyebrow {
+      display: block; font-size: 0.65rem; font-weight: 500;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--terracotta); margin-bottom: 0.7rem;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 300; color: var(--brown-dark); line-height: 1.1;
+    }
+    .section-title em { font-style: italic; }
+    .section-rule { width: 40px; height: 2px; background: var(--terracotta); margin-top: 1.2rem; }
+
+    /* ─── PORTFOLIO ─── */
+    #portfolio { padding: 7rem 5%; background: var(--cream); }
+    .portfolio-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 360px; gap: 1.4rem;
+    }
+    .p-item {
+      position: relative; overflow: hidden; border-radius: 2px;
+      background: var(--warm-mid); cursor: pointer;
+    }
+    .p-item img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.5s ease;
+    }
+    .p-item:hover img { transform: scale(1.05); }
+    .p-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(17,10,6,0.88) 0%, transparent 52%);
+      opacity: 0; transition: opacity 0.35s;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 1.7rem 1.9rem;
+    }
+    .p-item:hover .p-overlay { opacity: 1; }
+    .p-overlay h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; color: var(--cream);
+      font-weight: 300; margin-bottom: 0.3rem;
+    }
+    .p-overlay p {
+      font-size: 0.66rem; color: var(--terracotta);
+      letter-spacing: 0.12em; text-transform: uppercase;
+    }
+    .p-hidden { display: none; }
+    .portfolio-cta { text-align: center; margin-top: 2.8rem; }
+
+    /* ─── BRAND PILLARS ─── */
+    #pillars { background: var(--warm-white); padding: 7rem 5%; }
+    .pillars-inner {
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr 1px 1fr;
+      gap: 0; margin-top: 4rem; align-items: start;
+    }
+    .pillar-divider { background: var(--terracotta); opacity: 0.28; margin: 0.5rem 0; }
+    .pillar { padding: 0 3.2rem; }
+    .pillars-inner > .pillar:first-child { padding-left: 0; }
+    .pillars-inner > .pillar:last-child { padding-right: 0; }
+    .pillar-word {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.2vw, 3.2rem);
+      font-weight: 300; font-style: italic;
+      color: var(--brown-dark); margin-bottom: 1.1rem;
+    }
+    .pillar-desc { font-size: 0.85rem; color: var(--text-light); line-height: 1.85; }
+
+    /* ─── SERVICES ─── */
+    #services { padding: 7rem 5%; background: var(--cream); }
+    .services-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 0 5rem; margin-top: 3.5rem;
+    }
+    .service-item {
+      border-top: 1px solid var(--warm-mid);
+      padding: 2.2rem 0;
+    }
+    .service-num {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.75rem; color: var(--terracotta);
+      letter-spacing: 0.14em; margin-bottom: 0.9rem;
+    }
+    .service-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem; font-weight: 400;
+      color: var(--brown-dark); margin-bottom: 0.7rem; line-height: 1.2;
+    }
+    .service-desc { font-size: 0.85rem; color: var(--text-light); line-height: 1.85; }
+
+    /* ─── ABOUT + CREDENTIALS ─── */
+    #about {
+      background: var(--brown-dark);
+      padding: 7rem 5%;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 6rem; align-items: start;
+    }
+    .about-eyebrow {
+      display: block; font-size: 0.65rem; font-weight: 500;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--terracotta); margin-bottom: 1.8rem;
+    }
+    .about-bio {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.1rem, 1.9vw, 1.38rem);
+      font-weight: 300; font-style: italic;
+      color: rgba(250,247,244,0.84); line-height: 1.8;
+    }
+    .creds-eyebrow {
+      display: block; font-size: 0.65rem; font-weight: 500;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--terracotta); margin-bottom: 1.8rem;
+    }
+    .creds-list { list-style: none; }
+    .creds-list li {
+      padding: 1.1rem 0; border-bottom: 1px solid rgba(200,149,108,0.17);
+      display: flex; flex-direction: column; gap: 0.28rem;
+    }
+    .creds-list li:first-child { border-top: 1px solid rgba(200,149,108,0.17); }
+    .cred-label {
+      font-size: 0.61rem; letter-spacing: 0.13em;
+      text-transform: uppercase; color: rgba(200,149,108,0.52);
+    }
+    .cred-value { font-size: 0.87rem; color: rgba(250,247,244,0.7); }
+    .creds-list a { color: rgba(250,247,244,0.7); text-decoration: none; transition: color 0.2s; }
+    .creds-list a:hover { color: var(--terracotta); }
+
+    /* ─── CONTACT ─── */
+    #contact { background: var(--warm-white); padding: 7rem 5%; }
+    .contact-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start;
+    }
+    .contact-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300;
+      color: var(--brown-dark); margin-bottom: 1.2rem; line-height: 1.1;
+    }
+    .contact-heading em { font-style: italic; }
+    .contact-intro {
+      color: var(--text-light); font-size: 0.95rem; line-height: 1.9; margin-bottom: 2.5rem;
+    }
+    .contact-list { list-style: none; }
+    .contact-list li {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 0.85rem 0; border-bottom: 1px solid var(--warm-mid); font-size: 0.88rem;
+    }
+    .contact-list .ico {
+      width: 34px; height: 34px; background: var(--cream); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.88rem; flex-shrink: 0;
+    }
+    .contact-list a { color: var(--text); text-decoration: none; transition: color 0.2s; }
+    .contact-list a:hover { color: var(--brown); }
+    .form-group { margin-bottom: 1.1rem; }
+    .form-group label {
+      display: block; font-size: 0.68rem; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text-light); margin-bottom: 0.45rem;
+    }
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%; padding: 0.85rem 1rem;
+      border: 1.5px solid var(--warm-mid); border-radius: 2px;
+      background: var(--cream); color: var(--text);
+      font-family: 'Jost', sans-serif; font-size: 0.88rem;
+      outline: none; transition: border-color 0.2s; -webkit-appearance: none;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--brown); }
+    .form-group textarea { height: 120px; resize: vertical; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-success {
+      display: none; background: var(--cream); border: 1px solid var(--terracotta);
+      border-radius: 2px; padding: 2rem; text-align: center;
+      font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--brown);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--ink); padding: 1.8rem 5%;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-copy { color: rgba(250,247,244,0.3); font-size: 0.74rem; letter-spacing: 0.04em; }
+    .footer-links { display: flex; gap: 1.8rem; }
+    .footer-links a {
+      color: rgba(200,149,108,0.52); font-size: 0.74rem;
+      text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--terracotta); }
+
+    /* ─── REVEAL ─── */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none; position: fixed;
+        top: 64px; left: 0; right: 0;
+        background: rgba(250,247,244,0.97);
+        backdrop-filter: blur(8px);
+        flex-direction: column; padding: 1.5rem 5%;
+        gap: 1.2rem; border-bottom: 1px solid var(--warm-mid);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { color: var(--text-light) !important; }
+      .nav-menu-btn { display: block; }
+      .feat-work { grid-template-columns: 1fr; min-height: auto; }
+      .feat-img { height: 60vw; }
+      .feat-text { padding: 4.5rem 5%; }
+      .portfolio-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 300px; }
+      .pillars-inner { grid-template-columns: 1fr; }
+      .pillar-divider { display: none; }
+      .pillar {
+        padding: 2rem 0;
+        border-top: 1px solid rgba(200,149,108,0.2);
+      }
+      .pillars-inner > .pillar:first-child { border-top: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      #about { grid-template-columns: 1fr; gap: 4rem; }
+      .contact-inner { grid-template-columns: 1fr; gap: 4rem; }
+    }
+    @media (max-width: 600px) {
+      .portfolio-grid { grid-template-columns: 1fr; grid-auto-rows: 280px; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero { padding-bottom: 12vh; }
+      footer { flex-direction: column; align-items: flex-start; }
+      .philosophy { padding: 5rem 5%; }
+      #pillars { padding: 5rem 5%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#home" class="nav-logo">
+    <span class="logo-mb">MB</span>
+    <span class="logo-divider"></span>
+    <span class="logo-right">
+      <span class="logo-name">Mana B</span>
+      <span class="logo-sub">Interior Decorator</span>
+    </span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#portfolio">Work</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-menu-btn" id="menuBtn" onclick="toggleMenu()" aria-label="Menu">Menu</button>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content reveal">
+    <h1 class="hero-title">
+      Designing spaces<br>
+      that feel like<br>
+      <em>home</em>
+    </h1>
+    <p class="hero-tagline">
+      Interior Decorator with a Diploma from Conestoga College — available for studios, showrooms and retailers across Kitchener–Waterloo–Cambridge.
+    </p>
+    <div class="hero-cta">
+      <a href="#portfolio" class="btn btn-solid">See My Work</a>
+      <a href="#contact" class="btn btn-outline-cream">Get In Touch</a>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span class="scroll-hint-label">Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY STRIP -->
+<section class="philosophy reveal">
+  <div class="philosophy-inner">
+    <div class="phi-rule">
+      <span class="phi-quote">"Creating spaces that feel personal, purposeful, and alive."</span>
+    </div>
+    <p class="phi-values">Nature &nbsp;·&nbsp; Culture &nbsp;·&nbsp; Architecture</p>
+  </div>
+</section>
+
+<!-- FEATURED WORK -->
+<section class="feat-work">
+  <div class="feat-text reveal">
+    <span class="feat-eyebrow">Featured Work</span>
+    <h2 class="feat-title">Warm <em>Sanctuary</em></h2>
+    <p class="feat-desc">An ensuite designed to feel calm, inviting, and quietly luxurious — soft neutral layers, organic textures, and brushed brass fixtures composing a space that is timeless and serene.</p>
+    <a href="project-warm-sanctuary.html" class="btn btn-outline-terra" style="align-self:flex-start;">View Project →</a>
+  </div>
+  <div class="feat-img">
+    <img src="images/a8ead6ba-3946-4275-ae46-d121b44a9647.png" alt="Warm Sanctuary — featured interior design project" />
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="section-header reveal">
+    <span class="section-eyebrow">Selected Work · 2024–2026</span>
+    <h2 class="section-title">Portfolio <em>Projects</em></h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <div class="portfolio-grid reveal" id="portfolioGrid">
+
+    <!-- 6 curated (always visible) -->
+    <div class="p-item" onclick="location.href='project-featured.html'">
+      <img src="images/77f9c5b1-c47c-41d2-b5ad-50e6fdd05a64.jpg" alt="Kitchen Vignette" />
+      <div class="p-overlay"><h3>Kitchen Vignette</h3><p>Styling &amp; Photography · 2025</p></div>
+    </div>
+    <div class="p-item" onclick="location.href='project-kitchen-rendering.html'">
+      <img src="images/00380a55-cb99-4f8e-bbf3-68029e4ec928.png" alt="Azul Elegance" />
+      <div class="p-overlay"><h3>Azul Elegance</h3><p>3D Rendering · 2024</p></div>
+    </div>
+    <div class="p-item" onclick="location.href='project-warm-sanctuary.html'">
+      <img src="images/a8ead6ba-3946-4275-ae46-d121b44a9647.png" alt="Warm Sanctuary" />
+      <div class="p-overlay"><h3>Warm Sanctuary</h3><p>Interior Design · 2026</p></div>
+    </div>
+    <div class="p-item" onclick="location.href='project-true-north.html'">
+      <img src="images/0ae0818f-6a6f-4137-87f2-7b3e2737a35e.jpg" alt="True North Sparkling Water" />
+      <div class="p-overlay"><h3>True North Sparkling Water</h3><p>Brand Identity · 2024</p></div>
+    </div>
+    <div class="p-item" onclick="location.href='project-branding.html'">
+      <img src="images/8c17e56c-4863-4749-ba10-afd668858d46.png" alt="Branding &amp; Digital Marketing" />
+      <div class="p-overlay"><h3>Branding &amp; Digital Marketing</h3><p>Brand Identity · 2024</p></div>
+    </div>
+    <div class="p-item" onclick="location.href='project-interior-a.html'">
+      <img src="images/c710f1bc-8936-4bf6-bbed-e9e90f3d082a.png" alt="Interior Decorating Project A" />
+      <div class="p-overlay"><h3>Interior Decorating Project A</h3><p>Space Planning · 2025</p></div>
+    </div>
+
+    <!-- 8 additional (revealed via View All) -->
+    <div class="p-item p-hidden" onclick="location.href='project-tiny-home.html'">
+      <img src="images/4bd411fd-8a50-4643-9ca0-39e91c28a359.png" alt="Nook By The Bay" />
+      <div class="p-overlay"><h3>Nook By The Bay</h3><p>Interior Design · 2026</p></div>
+    </div>
+    <div class="p-item p-hidden" onclick="location.href='project-styling.html'">
+      <img src="images/901a1a57-5a28-470d-a239-a1dbad868c28.jpg" alt="Miss Dior Styling" />
+      <div class="p-overlay"><h3>Miss Dior Styling</h3><p>Interior Styling · 2025</p></div>
+    </div>
+    <div class="p-item p-hidden" onclick="location.href='project-photography.html'">
+      <img src="images/4c2dca81-89b8-4add-a2e8-eaf4f6f15297.jpg" alt="Design Photography" />
+      <div class="p-overlay"><h3>Design Photography</h3><p>Photography · 2025</p></div>
+    </div>
+    <div class="p-item p-hidden" onclick="location.href='project-interior-b.html'">
+      <img src="images/62fe94f6-8d9a-4f7b-a79a-46bc6f2e476b.png" alt="Interior Decorating Project B" />
+      <div class="p-overlay"><h3>Interior Decorating Project B</h3><p>Interior Design · 2025</p></div>
+    </div>
+    <div class="p-item p-hidden" onclick="location.href='project-drafting.html'">
+      <img src="images/c665ca33-b748-45ee-a79c-5cb4094de544.png" alt="Drafting &amp; Designs" />
+      <div class="p-overlay"><h3>Drafting &amp; Designs</h3><p>Technical Drawing · 2026</p></div>
+    </div>
+    <div class="p-item p-hidden" onclick="location.href='project-design-boards.html'">
+      <img src="images/994ceeee-d4ea-444c-81fa-290727677a0a.png" alt="Design Boards" />
+      <div class="p-overlay"><h3>Design Boards</h3><p>Interior Design · 2024</p></div>
+    </div>
+    <div class="p-item p-hidden" onclick="location.href='project-digital-moodboards.html'">
+      <img src="images/dc285984-ba10-480c-ab49-3390467504ba.png" alt="Digital Moodboards" />
+      <div class="p-overlay"><h3>Digital Moodboards</h3><p>Digital Design · 2024</p></div>
+    </div>
+    <div class="p-item p-hidden" onclick="location.href='project-creative.html'">
+      <img src="images/ef5b39ce-9c7a-4bf9-b9ad-6d28571b3093.png" alt="Creative Projects" />
+      <div class="p-overlay"><h3>Creative Projects</h3><p>Art &amp; Design · 2024</p></div>
+    </div>
+
+  </div>
+
+  <div class="portfolio-cta reveal">
+    <button id="viewAllBtn" class="btn btn-outline-brown" onclick="viewAll()">View All 14 Projects</button>
+  </div>
+</section>
+
+<!-- BRAND PILLARS -->
+<section id="pillars">
+  <div class="section-header reveal">
+    <span class="section-eyebrow">Design Philosophy</span>
+    <h2 class="section-title">The Way <em>I Work</em></h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="pillars-inner reveal">
+    <div class="pillar">
+      <span class="pillar-word">Thoughtful</span>
+      <p class="pillar-desc">Every decision serves the space — from the first material selection to the final arrangement. Nothing is arbitrary; each element is chosen with clarity and intent.</p>
+    </div>
+    <div class="pillar-divider"></div>
+    <div class="pillar">
+      <span class="pillar-word">Refined</span>
+      <p class="pillar-desc">A curated restraint that lets quality speak. Fewer elements, each chosen with care — allowing texture, light, and proportion to do the work.</p>
+    </div>
+    <div class="pillar-divider"></div>
+    <div class="pillar">
+      <span class="pillar-word">Purposeful</span>
+      <p class="pillar-desc">Spaces designed not just to look beautiful, but to feel right — for the people who live and work in them, every day.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-header reveal">
+    <span class="section-eyebrow">What I Offer</span>
+    <h2 class="section-title">Services <em>&amp; Skills</em></h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="services-grid reveal">
+    <div class="service-item">
+      <span class="service-num">01</span>
+      <h3 class="service-name">Space Planning</h3>
+      <p class="service-desc">Floor plans, furniture layouts, and spatial flow for residential and commercial environments — balancing function with livability.</p>
+    </div>
+    <div class="service-item">
+      <span class="service-num">02</span>
+      <h3 class="service-name">Colour Consulting</h3>
+      <p class="service-desc">Curated palettes for paint, textiles, and finishes that anchor the mood and aesthetic of any space.</p>
+    </div>
+    <div class="service-item">
+      <span class="service-num">03</span>
+      <h3 class="service-name">3D Rendering</h3>
+      <p class="service-desc">SketchUp models and rendered perspectives that bring design concepts to life before a single item is purchased or installed.</p>
+    </div>
+    <div class="service-item">
+      <span class="service-num">04</span>
+      <h3 class="service-name">Styling &amp; Photography</h3>
+      <p class="service-desc">Vignette composition, prop selection, and photography to present spaces and products at their most compelling.</p>
+    </div>
+    <div class="service-item">
+      <span class="service-num">05</span>
+      <h3 class="service-name">Mood Boards &amp; Concepts</h3>
+      <p class="service-desc">Digital and physical concept boards that translate client briefs into cohesive visual narratives and design directions.</p>
+    </div>
+    <div class="service-item">
+      <span class="service-num">06</span>
+      <h3 class="service-name">Brand Identity &amp; Design</h3>
+      <p class="service-desc">Logo design, brand kits, and digital marketing assets for lifestyle, home, and hospitality businesses.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT + CREDENTIALS -->
+<section id="about">
+  <div class="reveal">
+    <span class="about-eyebrow">About</span>
+    <p class="about-bio">Manasvi Bhan is an Interior Decorator with a diploma from Conestoga College, based in Waterloo, Ontario. Her work spans residential interiors, brand identity, and styled photography — united by a belief that beauty and function are inseparable. She is drawn to spaces that feel considered, textured, and quietly alive.</p>
+  </div>
+  <div class="reveal">
+    <span class="creds-eyebrow">Credentials &amp; Contact</span>
+    <ul class="creds-list">
+      <li>
+        <span class="cred-label">Education</span>
+        <span class="cred-value">Conestoga College · Interior Decorating Diploma · 2025</span>
+      </li>
+      <li>
+        <span class="cred-label">Location</span>
+        <span class="cred-value">Waterloo, Ontario · Available across KWC</span>
+      </li>
+      <li>
+        <span class="cred-label">Email</span>
+        <a href="mailto:manasvianoop@gmail.com" class="cred-value">manasvianoop@gmail.com</a>
+      </li>
+      <li>
+        <span class="cred-label">Instagram</span>
+        <a href="https://instagram.com/designsbymana" target="_blank" class="cred-value">@designsbymana</a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="reveal">
+      <span class="section-eyebrow">Let's Connect</span>
+      <h2 class="contact-heading">Let's work <em>together</em></h2>
+      <p class="contact-intro">Looking to bring fresh ideas to studios, showrooms and retailers across Kitchener–Waterloo–Cambridge in paint, flooring, textiles, furniture, and home décor.</p>
+      <ul class="contact-list">
+        <li><div class="ico">✉️</div><a href="mailto:manasvianoop@gmail.com">manasvianoop@gmail.com</a></li>
+        <li><div class="ico">📍</div><span>Waterloo, Ontario</span></li>
+        <li><div class="ico">📸</div><a href="https://instagram.com/designsbymana" target="_blank">@designsbymana</a></li>
+      </ul>
+    </div>
+    <div class="reveal">
+      <form id="contactForm" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" placeholder="Jane Smith" required />
+          </div>
+          <div class="form-group">
+            <label>Company</label>
+            <input type="text" placeholder="Studio / Showroom" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="jane@studio.com" required />
+        </div>
+        <div class="form-group">
+          <label>Industry</label>
+          <select>
+            <option value="">Select your industry</option>
+            <option>Paint &amp; Colour Consulting</option>
+            <option>Home Interiors / Décor</option>
+            <option>Interior Decorating Studio</option>
+            <option>Flooring &amp; Hardwood</option>
+            <option>Textiles &amp; Fabrics</option>
+            <option>Furniture &amp; Furnishings</option>
+            <option>Renovation &amp; Staging</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="Tell me about the opportunity..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-solid" style="width:100%;">Send Message</button>
+      </form>
+      <div class="form-success" id="formSuccess">
+        ✉️ Thank you! I'll be in touch shortly.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-copy">© 2026 Manasvi Bhan &nbsp;·&nbsp; Interior Decorator &nbsp;·&nbsp; Waterloo, ON</p>
+  <div class="footer-links">
+    <a href="https://instagram.com/designsbymana" target="_blank">Instagram</a>
+  </div>
+</footer>
+
+<script>
+  // Scroll nav — transparent over hero, filled when scrolled
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Mobile menu toggle
+  function toggleMenu() {
+    const links = document.getElementById('navLinks');
+    const btn = document.getElementById('menuBtn');
+    const isOpen = links.classList.toggle('open');
+    btn.textContent = isOpen ? 'Close' : 'Menu';
+    if (isOpen) document.getElementById('navbar').classList.add('scrolled');
+    else if (window.scrollY <= 60) document.getElementById('navbar').classList.remove('scrolled');
+  }
+  document.querySelectorAll('#navLinks a').forEach(l => l.addEventListener('click', () => {
+    document.getElementById('navLinks').classList.remove('open');
+    document.getElementById('menuBtn').textContent = 'Menu';
+    if (window.scrollY <= 60) document.getElementById('navbar').classList.remove('scrolled');
+  }));
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // View all 14 projects
+  function viewAll() {
+    document.querySelectorAll('.p-hidden').forEach(el => el.classList.remove('p-hidden'));
+    document.getElementById('viewAllBtn').style.display = 'none';
+  }
+
+  // Contact form submit
+  function handleSubmit(e) {
+    e.preventDefault();
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  }
+</script>
+</body>
+</html>
