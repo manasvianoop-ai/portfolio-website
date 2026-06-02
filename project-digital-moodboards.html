@@ -7,6 +7,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="project.css" />
+  <style>
+    .gallery-masonry figure { display: inline-block; width: 100%; margin: 0 0 1.4rem; break-inside: avoid; }
+    .gallery-masonry figure img { width: 100%; display: block; cursor: zoom-in; }
+    .gallery-masonry figcaption {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.78rem; font-weight: 400; line-height: 1.7;
+      color: var(--text-light); padding: 0.75rem 0.25rem 0;
+      border-top: 1px solid var(--warm-mid); margin-top: 0.6rem;
+    }
+  </style>
 </head>
 <body>
 <nav class="proj-nav">
@@ -30,8 +40,14 @@
 
 <section class="proj-gallery">
   <div class="gallery-masonry">
-    <img src="images/dc285984-ba10-480c-ab49-3390467504ba.png" alt="MET Gala Inspired Primary Bedroom moodboard" onclick="openLightbox(this)" />
-    <img src="images/600c678b-387a-42c6-9c9c-5a864d339995.png" alt="Mood Board 2 — coastal palette" onclick="openLightbox(this)" />
+    <figure>
+      <img src="images/dc285984-ba10-480c-ab49-3390467504ba.png" alt="MET Gala Inspired Primary Bedroom moodboard" onclick="openLightbox(this)" />
+      <figcaption>Designed a MET Gala inspired Mood Board for a Primary Bedroom.</figcaption>
+    </figure>
+    <figure>
+      <img src="images/600c678b-387a-42c6-9c9c-5a864d339995.png" alt="Mood Board 2 — Whimsical Waves" onclick="openLightbox(this)" />
+      <figcaption>Designed this Mood board for a Client Colour Consultation Project — Whimsical Waves. Whimsical Waves combines elements of fluidity, nature, and cozy textures to create a harmonious and dreamy aesthetic.</figcaption>
+    </figure>
   </div>
 </section>
 
