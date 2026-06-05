@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soft Horizons | Manasvi Bhan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="project.css" />
+</head>
+<body>
+<nav class="proj-nav">
+  <a href="index.html#portfolio" class="proj-nav-back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    All Projects
+  </a>
+  <a href="index.html" class="proj-nav-logo"><span class="logo-mb">MB</span><span class="logo-divider"></span><span class="logo-right"><span class="logo-name">Mana B</span><span class="logo-sub">Interior Decorator</span></span></a>
+  <a href="index.html#contact" class="proj-nav-contact">Contact</a>
+</nav>
+
+<header class="proj-hero">
+  <p class="proj-category">Capstone · Sustainability &amp; Universal Design</p>
+  <h1 class="proj-title">Soft <em>Horizons</em></h1>
+  <div class="proj-meta">
+    <span class="proj-tag">2026</span>
+    <span class="proj-year">Conestoga College · Interior Decorating</span>
+  </div>
+  <p class="proj-desc">Soft Horizons is a full residential interior decorating Capstone project — a home designed for a family seeking a space that feels serene, intentional, and effortlessly liveable. The project spans every key area of the home: a welcoming entryway, an open-plan living and dining area, a fully fitted kitchen, a primary bedroom, and both standard and universally designed bathrooms, all united through a warm palette of natural tones and organic textures that feel calm without ever feeling cold.</p>
+  <p class="proj-desc" style="margin-top:1rem;">Sustainability was embedded into every design decision. Material selections favour natural, durable, and responsibly sourced options — warm wood finishes, stone surfaces, and natural fibre textiles chosen for their longevity and low environmental impact. The layout opens generously to an outdoor patio, blurring the line between inside and out and reducing reliance on artificial lighting throughout the day. Every finish was selected with intention, prioritising quality over quantity and ensuring the home ages with grace.</p>
+  <p class="proj-desc" style="margin-top:1rem;">A core pillar of the project is Universal Design — creating a home that is genuinely accessible and functional for all ages and abilities, without compromising on beauty. The primary bedroom and bathroom were designed with full UD principles: clear floor clearances, barrier-free layouts, lever-style hardware, and adaptable fixtures that support independence at every stage of life. Soft Horizons proves that inclusive design does not limit aesthetics — when done thoughtfully, it deepens them.</p>
+</header>
+
+<section class="proj-gallery">
+  <div class="gallery-masonry">
+    <img src="Capstone%20images%20to%20claude/final%20living%20copy1.png" alt="Soft Horizons — living room rendering" onclick="openLightbox(this)" />
+    <img src="Capstone%20images%20to%20claude/bedroom%20NEW%20BRIGHT.png" alt="Soft Horizons — primary bedroom rendering" onclick="openLightbox(this)" />
+    <img src="Capstone%20images%20to%20claude/RENDERED%20UD%20BATHROOM%20FOR%20PRINT.pdf.png" alt="Soft Horizons — universally designed bathroom rendering" onclick="openLightbox(this)" />
+    <img src="Capstone%20images%20to%20claude/PRESENTATION%20PLAN%20PRINT.png" alt="Soft Horizons — presentation floor plan" onclick="openLightbox(this)" />
+    <img src="Capstone%20images%20to%20claude/gr.png" alt="Soft Horizons — rendering" onclick="openLightbox(this)" />
+    <img src="Capstone%20images%20to%20claude/20260426_121045.jpg" alt="Soft Horizons — presentation day" onclick="openLightbox(this)" />
+    <img src="Capstone%20images%20to%20claude/20260426_121141.jpg" alt="Soft Horizons — presentation day" onclick="openLightbox(this)" />
+    <img src="Capstone%20images%20to%20claude/20260426_123213.jpg" alt="Soft Horizons — presentation day" onclick="openLightbox(this)" />
+    <img src="Capstone%20images%20to%20claude/20260426_130214.jpg" alt="Soft Horizons — presentation day" onclick="openLightbox(this)" />
+    <img src="Capstone%20images%20to%20claude/20260426_131145.jpg" alt="Soft Horizons — presentation day" onclick="openLightbox(this)" />
+    <img src="Capstone%20images%20to%20claude/20260426_134324.jpg" alt="Soft Horizons — presentation day" onclick="openLightbox(this)" />
+    <img src="Capstone%20images%20to%20claude/20260426_135445.jpg" alt="Soft Horizons — presentation day" onclick="openLightbox(this)" />
+  </div>
+</section>
+
+<a href="project-lenny-kravitz.html" class="proj-next">
+  <div>
+    <p class="proj-next-label">Next Project</p>
+    <p class="proj-next-title">Celebrity Bedroom Project</p>
+  </div>
+  <span class="proj-next-arrow">→</span>
+</a>
+<footer class="proj-footer"><p>© 2026 Manasvi Bhan · <a href="index.html">Portfolio</a></p></footer>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">×</button>
+  <button class="lightbox-prev" onclick="event.stopPropagation();navigateLightbox(-1)">&#8249;</button>
+  <img id="lightbox-img" src="" alt="" />
+  <button class="lightbox-next" onclick="event.stopPropagation();navigateLightbox(1)">&#8250;</button>
+</div>
+<script>
+let _lbImgs=[], _lbIdx=0;
+function openLightbox(img) { _lbImgs=Array.from(document.querySelectorAll('.gallery-masonry img')); _lbIdx=_lbImgs.indexOf(img); document.getElementById('lightbox-img').src=img.src; document.getElementById('lightbox').classList.add('open'); }
+function navigateLightbox(dir) { _lbIdx=(_lbIdx+dir+_lbImgs.length)%_lbImgs.length; document.getElementById('lightbox-img').src=_lbImgs[_lbIdx].src; }
+function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeLightbox(); if(e.key==='ArrowRight') navigateLightbox(1); if(e.key==='ArrowLeft') navigateLightbox(-1); });
+</script>
+</body>
+</html>
