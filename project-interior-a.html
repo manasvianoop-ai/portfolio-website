@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -83,12 +83,16 @@
 
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
   <button class="lightbox-close" onclick="closeLightbox()">×</button>
+  <button class="lightbox-prev" onclick="event.stopPropagation();navigateLightbox(-1)">&#8249;</button>
   <img id="lightbox-img" src="" alt="" />
+  <button class="lightbox-next" onclick="event.stopPropagation();navigateLightbox(1)">&#8250;</button>
 </div>
 <script>
-function openLightbox(img) { document.getElementById('lightbox-img').src = img.src; document.getElementById('lightbox').classList.add('open'); }
+let _lbImgs=[], _lbIdx=0;
+function openLightbox(img) { _lbImgs=Array.from(document.querySelectorAll('.gallery-masonry img')); _lbIdx=_lbImgs.indexOf(img); document.getElementById('lightbox-img').src=img.src; document.getElementById('lightbox').classList.add('open'); }
+function navigateLightbox(dir) { _lbIdx=(_lbIdx+dir+_lbImgs.length)%_lbImgs.length; document.getElementById('lightbox-img').src=_lbImgs[_lbIdx].src; }
 function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }
-document.addEventListener('keydown', e => { if(e.key==='Escape') closeLightbox(); });
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeLightbox(); if(e.key==='ArrowRight') navigateLightbox(1); if(e.key==='ArrowLeft') navigateLightbox(-1); });
 </script>
 </body>
 </html>
