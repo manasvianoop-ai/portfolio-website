@@ -70,6 +70,7 @@ body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--t
   padding: 9rem 5% 5rem;
   background: var(--warm-white);
   border-bottom: 1px solid var(--warm-mid);
+  text-align: center;
 }
 .proj-category {
   font-size: 0.7rem; font-weight: 500; letter-spacing: 0.25em;
@@ -84,7 +85,7 @@ body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--t
 .proj-title em { font-style: italic; color: var(--brown); }
 .proj-meta {
   display: flex; gap: 2rem; flex-wrap: wrap;
-  margin-bottom: 1.5rem; align-items: center;
+  margin-bottom: 1.5rem; align-items: center; justify-content: center;
 }
 .proj-tag {
   background: var(--brown); color: #fff;
@@ -95,8 +96,10 @@ body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--t
   font-size: 0.82rem; color: var(--text-light); letter-spacing: 0.05em;
 }
 .proj-desc {
-  max-width: 680px;
-  font-size: 1rem; color: var(--text-light); line-height: 1.9;
+  max-width: 660px;
+  margin: 0 auto;
+  font-size: 0.97rem; color: var(--text-light); line-height: 2;
+  text-align: left;
 }
 
 /* GALLERY */
