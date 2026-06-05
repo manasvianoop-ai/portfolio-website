@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lenny Kravitz | Manasvi Bhan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="project.css" />
+</head>
+<body>
+<nav class="proj-nav">
+  <a href="index.html#portfolio" class="proj-nav-back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    All Projects
+  </a>
+  <a href="index.html" class="proj-nav-logo"><span class="logo-mb">MB</span><span class="logo-divider"></span><span class="logo-right"><span class="logo-name">Mana B</span><span class="logo-sub">Interior Decorator</span></span></a>
+  <a href="index.html#contact" class="proj-nav-contact">Contact</a>
+</nav>
+
+<header class="proj-hero">
+  <p class="proj-category">Celebrity Inspired Design</p>
+  <h1 class="proj-title">Lenny <em>Kravitz</em></h1>
+  <div class="proj-meta">
+    <span class="proj-tag">2026</span>
+    <span class="proj-year">Conestoga College · Interior Decorating</span>
+  </div>
+  <p class="proj-desc"><!-- Add project description here --></p>
+</header>
+
+<section class="proj-gallery">
+  <div class="gallery-masonry">
+    <img src="Lenny%20Kravitz/1.png" alt="Lenny Kravitz — interior concept 1" onclick="openLightbox(this)" />
+    <img src="Lenny%20Kravitz/2.png" alt="Lenny Kravitz — interior concept 2" onclick="openLightbox(this)" />
+  </div>
+</section>
+
+<a href="project-renaissance.html" class="proj-next">
+  <div>
+    <p class="proj-next-label">Next Project</p>
+    <p class="proj-next-title">Renaissance</p>
+  </div>
+  <span class="proj-next-arrow">→</span>
+</a>
+<footer class="proj-footer"><p>© 2026 Manasvi Bhan · <a href="index.html">Portfolio</a></p></footer>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">×</button>
+  <img id="lightbox-img" src="" alt="" />
+</div>
+<script>
+function openLightbox(img) { document.getElementById('lightbox-img').src = img.src; document.getElementById('lightbox').classList.add('open'); }
+function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeLightbox(); });
+</script>
+</body>
+</html>
