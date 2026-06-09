@@ -108,17 +108,18 @@ body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--t
   background: var(--cream);
 }
 
-/* Masonry using CSS columns */
+/* Grid gallery — left to right, row by row */
 .gallery-masonry {
-  columns: 3;
-  column-gap: 1.2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
 }
 .gallery-masonry img {
   width: 100%;
+  height: 280px;
+  object-fit: cover;
   display: block;
-  margin-bottom: 1.2rem;
   border-radius: 3px;
-  break-inside: avoid;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: zoom-in;
 }
@@ -213,9 +214,9 @@ body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--t
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
-  .gallery-masonry { columns: 2; }
+  .gallery-masonry { grid-template-columns: repeat(2, 1fr); }
   .gallery-grid-2 { grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) {
-  .gallery-masonry { columns: 1; }
+  .gallery-masonry { grid-template-columns: 1fr; }
 }
