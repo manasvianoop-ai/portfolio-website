@@ -466,27 +466,72 @@
       .nav-links a { color: var(--text-light) !important; }
       .nav-menu-btn { display: block; }
       .feat-work { grid-template-columns: 1fr; min-height: auto; }
-      .feat-img { height: 60vw; }
-      .feat-text { padding: 4.5rem 5%; }
+      .feat-img { height: 55vw; }
+      .feat-text { padding: 4rem 5%; gap: 1.4rem; }
       .portfolio-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 300px; }
       .pillars-inner { grid-template-columns: 1fr; }
       .pillar-divider { display: none; }
-      .pillar {
-        padding: 2rem 0;
-        border-top: 1px solid rgba(200,149,108,0.2);
-      }
+      .pillar { padding: 2rem 0; border-top: 1px solid rgba(200,149,108,0.2); }
       .pillars-inner > .pillar:first-child { border-top: none; }
       .services-grid { grid-template-columns: 1fr; }
-      #about { grid-template-columns: 1fr; gap: 4rem; }
-      .contact-inner { grid-template-columns: 1fr; gap: 4rem; }
+      #about { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 5%; }
+      .contact-inner { grid-template-columns: 1fr; gap: 3.5rem; }
+      #portfolio { padding: 5rem 5%; }
+      #pillars { padding: 5rem 5%; }
+      #services { padding: 5rem 5%; }
+      #contact { padding: 5rem 5%; }
+      .philosophy { padding: 5rem 5%; }
     }
     @media (max-width: 600px) {
-      .portfolio-grid { grid-template-columns: 1fr; grid-auto-rows: 280px; }
+      /* Nav */
+      nav { padding: 1rem 5%; }
+      .nav-logo .logo-mb { font-size: 1.3rem; }
+
+      /* Hero */
+      .hero { padding: 0 5% 10vh; align-items: flex-end; }
+      .hero-content { max-width: 100%; }
+      .hero-tagline { max-width: 100%; font-size: 0.85rem; }
+      .hero-cta { flex-direction: column; gap: 0.75rem; }
+      .hero-cta .btn { text-align: center; width: 100%; max-width: 300px; }
+      .scroll-hint { display: none; }
+
+      /* Philosophy */
+      .philosophy { padding: 4rem 5%; }
+      .phi-quote { font-size: clamp(1.3rem, 5.5vw, 1.65rem); }
+      .phi-values { letter-spacing: 0.16em; font-size: 0.6rem; }
+
+      /* Portfolio */
+      .portfolio-grid { grid-template-columns: 1fr; grid-auto-rows: 260px; }
+      #portfolio { padding: 4rem 5%; }
+
+      /* Pillars */
+      #pillars { padding: 4rem 5%; }
+      .pillar-word { font-size: clamp(1.7rem, 6vw, 2.2rem); }
+
+      /* Services */
+      #services { padding: 4rem 5%; }
+
+      /* About */
+      #about { padding: 4rem 5%; gap: 2.5rem; }
+      .about-bio { font-size: clamp(1rem, 3.5vw, 1.2rem); }
+
+      /* Contact */
+      #contact { padding: 4rem 5%; }
+      .contact-heading { font-size: clamp(1.7rem, 6vw, 2.5rem); }
       .form-row { grid-template-columns: 1fr; }
-      .hero { padding-bottom: 12vh; }
-      footer { flex-direction: column; align-items: flex-start; }
-      .philosophy { padding: 5rem 5%; }
-      #pillars { padding: 5rem 5%; }
+      .contact-list li { font-size: 0.82rem; }
+
+      /* Featured */
+      .feat-img { height: 65vw; }
+      .feat-text { padding: 3rem 5%; gap: 1.2rem; }
+      .feat-title { font-size: clamp(2rem, 7vw, 3.2rem); }
+
+      /* Section headers */
+      .section-title { font-size: clamp(2rem, 7vw, 3rem); }
+
+      /* Footer */
+      footer { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+      .footer-links { gap: 1.2rem; }
     }
   </style>
 </head>

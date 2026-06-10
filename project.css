@@ -215,8 +215,28 @@ body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--t
 /* RESPONSIVE */
 @media (max-width: 900px) {
   .gallery-masonry { grid-template-columns: repeat(2, 1fr); }
+  .gallery-masonry img { height: 240px; }
   .gallery-grid-2 { grid-template-columns: 1fr; }
+  .proj-hero { padding: 7rem 5% 4rem; }
+  .proj-next { padding: 3rem 5%; }
 }
 @media (max-width: 600px) {
-  .gallery-masonry { grid-template-columns: 1fr; }
+  /* Nav */
+  .proj-nav { padding: 0.9rem 4%; }
+  .proj-nav-back span, .proj-nav-back svg + * { display: none; }
+  .proj-nav-logo .logo-mb { font-size: 1.25rem; }
+
+  /* Hero */
+  .proj-hero { padding: 6rem 5% 3rem; }
+  .proj-title { font-size: clamp(2rem, 8vw, 3.5rem); }
+  .proj-desc { font-size: 0.93rem; line-height: 1.85; text-align: left; }
+
+  /* Gallery */
+  .gallery-masonry { grid-template-columns: 1fr; gap: 0.8rem; }
+  .gallery-masonry img { height: 200px; }
+  .proj-gallery { padding: 2.5rem 5%; }
+
+  /* Next project */
+  .proj-next { padding: 2.5rem 5%; flex-direction: column; gap: 1rem; align-items: flex-start; }
+  .proj-next-title { font-size: clamp(1.3rem, 5vw, 2rem); }
 }
