@@ -99,7 +99,7 @@ body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--t
   max-width: 880px;
   margin: 0 auto;
   font-size: 0.97rem; color: var(--text-light); line-height: 2;
-  text-align: center;
+  text-align: center !important;
 }
 
 /* GALLERY */
