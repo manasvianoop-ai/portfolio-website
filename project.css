@@ -1,14 +1,14 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --brown:      #7B4A2D;
-  --brown-dark: #4E2C17;
-  --terracotta: #C8956C;
-  --cream:      #FAF7F4;
-  --warm-white: #F3EDE6;
-  --warm-mid:   #E8DDD3;
-  --text:       #2C1F14;
-  --text-light: #6B5344;
+  --brown:      #7A8A6A;
+  --brown-dark: #5A6B52;
+  --terracotta: #8B9478;
+  --cream:      #F7F3EE;
+  --warm-white: #EDE8DF;
+  --warm-mid:   #DDD5C8;
+  --text:       #2A2A25;
+  --text-light: #6B6858;
 }
 
 html { scroll-behavior: smooth; }
