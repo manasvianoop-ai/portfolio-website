@@ -99,7 +99,7 @@ body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--t
   max-width: 880px;
   margin: 0 auto;
   font-size: 0.97rem; color: var(--text-light); line-height: 2;
-  text-align: justify;
+  text-align: center;
 }
 
 /* GALLERY */
@@ -229,7 +229,7 @@ body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--t
   /* Hero */
   .proj-hero { padding: 6rem 5% 3rem; }
   .proj-title { font-size: clamp(2rem, 8vw, 3.5rem); }
-  .proj-desc { font-size: 0.93rem; line-height: 1.85; text-align: left; }
+  .proj-desc { font-size: 0.93rem; line-height: 1.85; text-align: center; }
 
   /* Gallery */
   .gallery-masonry { grid-template-columns: 1fr; gap: 0.8rem; }
