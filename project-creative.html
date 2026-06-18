@@ -7,6 +7,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="project.css" />
+  <style>
+    .gallery-masonry figure { margin: 0; display: flex; flex-direction: column; }
+    .gallery-masonry figcaption {
+      padding: 0.7rem 0.4rem 0; text-align: center;
+    }
+    .gallery-masonry figcaption strong {
+      display: block; font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem; font-weight: 400; font-style: italic;
+      color: var(--brown-dark); margin-bottom: 0.3rem;
+    }
+    .gallery-masonry figcaption span {
+      font-size: 0.8rem; color: var(--text-light); line-height: 1.6;
+    }
+  </style>
 </head>
 <body>
 <nav class="proj-nav">
@@ -24,15 +38,26 @@
   <div class="proj-meta">
     <span class="proj-tag">2024</span>
   </div>
-  <p class="proj-desc">Art Poster — "There is Hope." This transitional style Art poster embraces a tonal, textured, and monochromatic minimalism that radiates elegance and balance. Abstract Achromatic Art Print Posters that add a contemporary feel to the space. Abstract Art for a contemporary style Loft Condo.</p>
 </header>
 
 <section class="proj-gallery">
   <div class="gallery-masonry">
-    <img src="images/3e816fc5-3c6c-4325-b9e0-6504b1b9c0e0.jpg" alt="Whimsical Waves — fluidity and nature" onclick="openLightbox(this)" />
-    <img src="images/ef5b39ce-9c7a-4bf9-b9ad-6d28571b3093.png" alt="Elegante — transitional art poster, Waterloo 2024" onclick="openLightbox(this)" />
-    <img src="images/7e2a66b9-3cb6-4fde-93e3-65fcb40d6bf4.jpg" alt="Abstract line art print — contemporary loft" onclick="openLightbox(this)" />
-    <img src="images/978af651-0118-4f61-a1f4-b609c23e9780.jpg" alt="Abstract shape print — contemporary loft" onclick="openLightbox(this)" />
+    <figure>
+      <img src="images/3e816fc5-3c6c-4325-b9e0-6504b1b9c0e0.jpg" alt="Whimsical Waves" onclick="openLightbox(this)" />
+      <figcaption><strong>Whimsical Waves</strong><span>Combines elements of fluidity, nature, and cozy textures to create a harmonious and dreamy aesthetic.</span></figcaption>
+    </figure>
+    <figure>
+      <img src="images/ef5b39ce-9c7a-4bf9-b9ad-6d28571b3093.png" alt="There is Hope" onclick="openLightbox(this)" />
+      <figcaption><strong>There is Hope</strong><span>This transitional style art poster embraces a tonal, textured, and monochromatic minimalism that radiates elegance and balance.</span></figcaption>
+    </figure>
+    <figure>
+      <img src="images/7e2a66b9-3cb6-4fde-93e3-65fcb40d6bf4.jpg" alt="Abstract Achromatic Art Print" onclick="openLightbox(this)" />
+      <figcaption><strong>Abstract Achromatic Art Print</strong><span>Abstract art print poster that adds a contemporary feel to the space — designed for a contemporary style Loft Condo.</span></figcaption>
+    </figure>
+    <figure>
+      <img src="images/978af651-0118-4f61-a1f4-b609c23e9780.jpg" alt="Abstract Art — Contemporary Loft" onclick="openLightbox(this)" />
+      <figcaption><strong>Abstract Art — Contemporary Loft</strong><span>Abstract shape print designed as wall art for a contemporary style Loft Condo.</span></figcaption>
+    </figure>
   </div>
 </section>
 
