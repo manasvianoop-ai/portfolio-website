@@ -7,6 +7,22 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="project.css" />
+  <style>
+    .gallery-masonry figure { margin: 0; display: flex; flex-direction: column; }
+    .gallery-masonry figcaption {
+      padding: 0.7rem 0.4rem 0;
+      text-align: center;
+    }
+    .gallery-masonry figcaption strong {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem; font-weight: 400; font-style: italic;
+      color: var(--brown-dark); margin-bottom: 0.3rem;
+    }
+    .gallery-masonry figcaption span {
+      font-size: 0.8rem; color: var(--text-light); line-height: 1.6;
+    }
+  </style>
 </head>
 <body>
 <nav class="proj-nav">
@@ -24,18 +40,39 @@
   <div class="proj-meta">
     <span class="proj-tag">2025</span>
   </div>
-  <p class="proj-desc">On the Prowl — captures a detailed leopard design engraved into lightweight concrete by Dekko, symbolizing power and beauty combined with nature and modern design. The wall uses lightweight concrete, clay, shale, and slate, and it is completely resin-free. The Unfiltered Trio — a bronze sculpture photographed in Montreal; the three figures appear frozen in time yet lively and full of personality, shot using the Rule of Odds composition technique. Stone Whispers — explores beauty in calm, quiet details through symmetrical stone patterns captured from bird's eye view. The Woven Radiance — uses worm's eye view beneath a lamp, creating a dramatic perspective that emphasizes the intricate radial pattern. The Infinity Gate — a perfect example of frame within a frame compositional technique. Also featuring: The Zen Mode — Time to Reflect, and Texture Meets Tranquility.</p>
+  <p class="proj-desc">A series of design photographs exploring texture, composition, and the quiet beauty found in everyday materials and spaces.</p>
 </header>
 
 <section class="proj-gallery">
   <div class="gallery-masonry">
-    <img src="images/4c2dca81-89b8-4add-a2e8-eaf4f6f15297.jpg" alt="On the Prowl — leopard engraved in lightweight concrete by Dekko" onclick="openLightbox(this)" />
-    <img src="images/4f1fe175-b307-4b2f-bf42-bed8db86270d.jpg" alt="The Unfiltered Trio — bronze sculpture, Montreal" onclick="openLightbox(this)" />
-    <img src="images/c6528ac0-fe9d-4d6c-8af8-7f9e59e88775.png" alt="Stone Whispers — natural stone with symmetrical veining" onclick="openLightbox(this)" />
-    <img src="images/f5befb3b-caf4-4d1a-afdc-4c07c533ff9d.jpg" alt="The Zen Mode — time to reflect" onclick="openLightbox(this)" />
-    <img src="images/c15cbd96-9c7e-49d1-9f82-7924e1ab50c0.jpg" alt="The Woven Radiance — woven light fixture from below" onclick="openLightbox(this)" />
-    <img src="images/094538d4-a571-4d49-8463-456da2df9bcd.jpg" alt="Texture Meets Tranquility — cable-knit texture" onclick="openLightbox(this)" />
-    <img src="images/f3a76be4-08f8-4c16-b77f-2c2ca2320c0d.jpg" alt="The Infinity Gate — frame within a frame" onclick="openLightbox(this)" />
+    <figure>
+      <img src="images/4c2dca81-89b8-4add-a2e8-eaf4f6f15297.jpg" alt="On the Prowl" onclick="openLightbox(this)" />
+      <figcaption><strong>On the Prowl</strong><span>Captures a detailed leopard design engraved into lightweight concrete by Dekko, symbolizing power and beauty combined with nature and modern design. The wall uses lightweight concrete, clay, shale, and slate, and it is completely resin-free.</span></figcaption>
+    </figure>
+    <figure>
+      <img src="images/4f1fe175-b307-4b2f-bf42-bed8db86270d.jpg" alt="The Unfiltered Trio" onclick="openLightbox(this)" />
+      <figcaption><strong>The Unfiltered Trio</strong><span>A bronze sculpture photographed in Montreal; the three figures appear frozen in time yet lively and full of personality, shot using the Rule of Odds composition technique.</span></figcaption>
+    </figure>
+    <figure>
+      <img src="images/c6528ac0-fe9d-4d6c-8af8-7f9e59e88775.png" alt="Stone Whispers" onclick="openLightbox(this)" />
+      <figcaption><strong>Stone Whispers</strong><span>Explores beauty in calm, quiet details through symmetrical stone patterns captured from bird's eye view.</span></figcaption>
+    </figure>
+    <figure>
+      <img src="images/f5befb3b-caf4-4d1a-afdc-4c07c533ff9d.jpg" alt="The Zen Mode" onclick="openLightbox(this)" />
+      <figcaption><strong>The Zen Mode</strong><span>Time to Reflect.</span></figcaption>
+    </figure>
+    <figure>
+      <img src="images/c15cbd96-9c7e-49d1-9f82-7924e1ab50c0.jpg" alt="The Woven Radiance" onclick="openLightbox(this)" />
+      <figcaption><strong>The Woven Radiance</strong><span>Uses worm's eye view beneath a lamp, creating a dramatic perspective that emphasizes the intricate radial pattern.</span></figcaption>
+    </figure>
+    <figure>
+      <img src="images/094538d4-a571-4d49-8463-456da2df9bcd.jpg" alt="Texture Meets Tranquility" onclick="openLightbox(this)" />
+      <figcaption><strong>Texture Meets Tranquility</strong><span>Finding serenity in the quiet poetry of surface and material.</span></figcaption>
+    </figure>
+    <figure>
+      <img src="images/f3a76be4-08f8-4c16-b77f-2c2ca2320c0d.jpg" alt="The Infinity Gate" onclick="openLightbox(this)" />
+      <figcaption><strong>The Infinity Gate</strong><span>A perfect example of the frame within a frame compositional technique.</span></figcaption>
+    </figure>
   </div>
 </section>
 
