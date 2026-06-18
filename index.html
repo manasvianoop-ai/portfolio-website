@@ -827,6 +827,8 @@
   // Scroll nav — transparent over hero, filled when scrolled
   window.addEventListener('scroll', () => {
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+    const hint = document.querySelector('.scroll-hint');
+    if (hint) hint.style.opacity = window.scrollY > 40 ? '0' : '';
   });
 
   // Mobile menu toggle
