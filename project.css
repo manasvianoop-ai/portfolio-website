@@ -95,7 +95,7 @@ body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--t
 .proj-year {
   font-size: 0.82rem; color: var(--text-light); letter-spacing: 0.05em;
 }
-.proj-desc {
+.proj-desc, .brand-section-desc {
   max-width: 880px;
   margin: 0 auto;
   font-size: 0.97rem; color: var(--text-light); line-height: 2;
